@@ -1,7 +1,9 @@
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
-geocode("Los Angeles", (error, geoData) => {
+const address = process.argv[2];
+
+geocode(address, (error, geoData) => {
     if (error) {
         return console.log(error);
     }
@@ -11,7 +13,7 @@ geocode("Los Angeles", (error, geoData) => {
             return console.log(error);
         }
 
-        console.log(geoData.name);
+        console.log("Current weather for " + geoData.name);
         console.log(forecastData);
     })
 });
