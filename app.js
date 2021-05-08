@@ -18,9 +18,9 @@ request({ url:weatherStackUrl, json:true }, (error, response) => {
 
 request({url: geocodingUrl, json:true }, (error, response) => {
     if (error) {
-        console.log("Unable to parse geolocation.");
+        console.log("Unable to connect to geolocation service.");
     } else if (response.body.features[0] === undefined) {
-        console.log("Location not found");
+        console.log("Location not found.");
     } else {
         console.log("Latitude: " + response.body.features[0].center[1]);
         console.log("Longitude: " + response.body.features[0].center[0]);
